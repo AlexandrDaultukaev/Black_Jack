@@ -1,5 +1,5 @@
 import random
-
+import time
 #11 - ace
 #10 - jack, queen, king
 deck_of_cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
@@ -21,15 +21,28 @@ def who_wins(p_hand, d_hand):
     elif sum(p_hand) < sum(d_hand):
         print("You lose!\n")
 
-dillers_hand = []
+def dealers_choice(d_hand):
+    print("Dealer makes a desicion.")
+    time.sleep(1)
+    print("Dealer makes a desicion..")
+    time.sleep(1)
+    print("Dealer makes a desicion...")
+    time.sleep(1)
+    print("Dealer makes a desicion...[OK]")
+    time.sleep(0.5)
+    if sum(d_hand) < 17:
+        d_hand.append(random.choice(deck_of_cards))
+
+dealers_hand = []
 players_hand = []
 for i in range(0, 2):
-    dillers_hand.append(random.choice(deck_of_cards))
+    dealers_hand.append(random.choice(deck_of_cards))
     players_hand.append(random.choice(deck_of_cards))
-print("[" + "".join(str(dillers_hand[0])) + ", *]")
+print("[" + "".join(str(dealers_hand[0])) + ", *]")
 print(players_hand)
+dealers_choice(dealers_hand)
 take_card(players_hand)
-print(f"Diller's hand: {dillers_hand} = {sum(dillers_hand)}\nYour hand: {players_hand} = {sum(players_hand)}\n")
-who_wins(players_hand, dillers_hand)
+print(f"Dealer's hand: {dealers_hand} = {sum(dealers_hand)}\nYour hand: {players_hand} = {sum(players_hand)}\n")
+who_wins(players_hand, dealers_hand)
 
 
