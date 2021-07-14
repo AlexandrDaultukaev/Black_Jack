@@ -3,6 +3,13 @@ import time
 #11 - ace
 #10 - jack, queen, king
 deck_of_cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+dealers_hand = []
+players_hand = []
+
+def distribution_of_cards(p_hand, d_hand):
+    for _ in range(2):
+        d_hand.append(random.choice(deck_of_cards))
+        p_hand.append(random.choice(deck_of_cards))
 
 def take_card(hand):
     while input("Do you want to take a card?(y/n)") in ["yes", "y", "ye"]:
@@ -36,11 +43,8 @@ def dealers_choice(d_hand):
     if sum(d_hand) < 17:
         d_hand.append(random.choice(deck_of_cards))
 
-dealers_hand = []
-players_hand = []
-for i in range(0, 2):
-    dealers_hand.append(random.choice(deck_of_cards))
-    players_hand.append(random.choice(deck_of_cards))
+
+distribution_of_cards(players_hand, dealers_hand)
 print("[" + "".join(str(dealers_hand[0])) + ", *]")
 print(players_hand)
 dealers_choice(dealers_hand)
