@@ -8,6 +8,9 @@ def take_card(hand):
     while input("Do you want to take a card?(y/n)") in ["yes", "y", "ye"]:
         hand.append(random.choice(deck_of_cards))
         print(hand)
+    if 11 in hand:
+        if input("You have Ace in your hand. Is it 1 or 11?(1, 11)") == "1":
+            hand[hand.index(11)] = 1
 
 def who_wins(p_hand, d_hand):
     if sum(p_hand) > 21:
