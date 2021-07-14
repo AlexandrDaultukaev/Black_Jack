@@ -7,11 +7,13 @@ dealers_hand = []
 players_hand = []
 
 def distribution_of_cards(p_hand, d_hand):
+    """Distributes two cards to the player's hands"""
     for _ in range(2):
         d_hand.append(random.choice(deck_of_cards))
         p_hand.append(random.choice(deck_of_cards))
 
 def take_card(hand):
+    """Gives one card to hand if player want it"""
     while input("Do you want to take a card?(y/n)") in ["yes", "y", "ye"]:
         hand.append(random.choice(deck_of_cards))
         print(hand)
@@ -20,6 +22,7 @@ def take_card(hand):
             hand[hand.index(11)] = 1
 
 def who_wins(p_hand, d_hand):
+    """Makes desicion who wins"""
     if sum(p_hand) > 21:
         print("You lose!\n")
     elif sum(d_hand) > 21:
@@ -32,6 +35,7 @@ def who_wins(p_hand, d_hand):
         print("You lose!\n")
 
 def dealers_choice(d_hand):
+    """Adds a card to dealers if the total of his cards is less than 17"""
     print("Dealer makes a desicion.")
     time.sleep(1)
     print("Dealer makes a desicion..")
