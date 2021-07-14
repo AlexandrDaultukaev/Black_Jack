@@ -1,4 +1,5 @@
 import random
+from art import logo
 import time
 #11 - ace
 #10 - jack, queen, king
@@ -14,7 +15,7 @@ def distribution_of_cards(p_hand, d_hand):
 
 def take_card(hand):
     """Gives one card to hand if player want it"""
-    while input("Do you want to take a card?(y/n)") in ["yes", "y", "ye"]:
+    while input("Do you want to take a card?(y/n): ") in ["yes", "y", "ye"]:
         hand.append(random.choice(deck_of_cards))
         print(hand)
     if 11 in hand:
@@ -47,7 +48,7 @@ def dealers_choice(d_hand):
     if sum(d_hand) < 17:
         d_hand.append(random.choice(deck_of_cards))
 
-
+print(logo)
 distribution_of_cards(players_hand, dealers_hand)
 print("[" + "".join(str(dealers_hand[0])) + ", *]")
 print(players_hand)
